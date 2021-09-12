@@ -82,6 +82,9 @@
               "browserTarget": "shop:build:development"
             }
           },
+          "options": {
+              "port": 4850
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

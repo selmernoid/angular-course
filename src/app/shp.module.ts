@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { ShpRoutingModule } from './shp-routing.module';
+import { ShpComponent } from './shp.component';
 import { FirstComponent } from './features/test/first/first.component';
+import { CategoryType } from './features/test/first/category-type';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FirstComponent
+    ShpComponent,
+    FirstComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ShpRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ShpComponent]
 })
 export class AppModule { }
