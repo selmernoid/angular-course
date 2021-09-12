@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryType } from './category-type';
+import { CategoryType } from '../../products/models/category-type';
 
 @Component({
   selector: 'shp-first',
