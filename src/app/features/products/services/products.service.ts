@@ -9,9 +9,9 @@ export class ProductsService {
 
   GetProducts(): ProductModel[] {
     return [
-      { name: 'Egg', category: CategoryType.Food, isAvailable: true, price: 5 },
-      { name: 'Windows', category: CategoryType.Software, isAvailable: true, price: 500 },
-      { name: 'Zaporozhec', category: CategoryType.Car, isAvailable: false, price: 15.65 },
+      { id: 10, name: 'Egg', category: CategoryType.Food, isAvailable: true, price: 5 },
+      { id: 7, name: 'Windows', category: CategoryType.Software, isAvailable: true, price: 500 },
+      { id: 1960, name: 'Zaporozhec', category: CategoryType.Car, isAvailable: false, price: 15.65 },
     ];
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductModel } from '../../models/product';
 
 @Component({
@@ -7,11 +8,13 @@ import { ProductModel } from '../../models/product';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
-  
+
   @Input()
   product: ProductModel;
 
-  onAddToCart(){
-    console.log('Item has been sold');
+  constructor(private cartService: CartService) { }
+
+  onAddToCart() {
+    this.cartService.buyProduct(this.product);
   }
 }

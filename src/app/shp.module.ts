@@ -7,6 +7,7 @@ import { FirstComponent } from './features/test/first/first.component';
 import { CategoryType } from './features/products/models/category-type';
 import { ProductComponent } from './features/products/components/product/product.component';
 import { ProductListComponent } from './features/products/components/product-list/product-list.component';
+import { CartListComponent } from './features/cart/components/cart-list/cart-list.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProductListComponent } from './features/products/components/product-lis
     FirstComponent,
     ProductComponent,
     ProductListComponent,
+    CartListComponent,
   ],
   imports: [
     BrowserModule,
