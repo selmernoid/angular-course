@@ -7,6 +7,7 @@ import { ProductModel } from '../models/product';
 })
 export class ProductsService {
 
+  // метод начинаем с нижнего регистра
   GetProducts(): ProductModel[] {
     return [
       { id: 10, name: 'Egg', category: CategoryType.Food, isAvailable: true, price: 5 },

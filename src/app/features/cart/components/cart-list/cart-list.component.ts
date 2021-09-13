@@ -15,10 +15,10 @@ export class CartListComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItemsList = this.cartService.getCartProducts();
-    this.cartItemsList
+    this.cartItemsList  // ?
   }
 
   identify(index: number, item: CartItem) {
-     return (item.item.id, item.amount);
+     return (item.item.id, item.amount); // что это дает?
   }
 }

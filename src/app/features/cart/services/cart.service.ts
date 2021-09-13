@@ -11,7 +11,7 @@ export class CartService {
 
   constructor() { }
 
-  buyProduct(product: ProductModel){
+  buyProduct(product: ProductModel): void {
     let item = this.items.find(x=> x.item.id === product.id);
     if (item){
       item.amount++;
