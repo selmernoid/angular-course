@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Test First component
 ### Changed
-- 
+- CartService is called from ProductListComponent 
 ### Added
 - ProductsModule, CartModule, OrdersModule, SharedModule
 

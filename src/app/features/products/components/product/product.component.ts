@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductModel } from '../../models/product';
 
@@ -12,9 +12,10 @@ export class ProductComponent {
   @Input()
   product: ProductModel;
 
-  constructor(private cartService: CartService) { }
+  @Output()
+  buyProduct: EventEmitter<number> = new EventEmitter<number>();
 
-  onAddToCart(): void {
-    this.cartService.buyProduct(this.product);
+  onBuyProduct(): void {
+    this.buyProduct.emit(this.product.id);
   }
 }
