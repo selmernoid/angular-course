@@ -3,21 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { ShpRoutingModule } from './shp-routing.module';
 import { ShpComponent } from './shp.component';
-import { FirstComponent } from './features/test/first/first.component';
-import { CategoryType } from './features/products/models/category-type';
-import { ProductComponent } from './features/products/components/product/product.component';
-import { ProductListComponent } from './features/products/components/product-list/product-list.component';
-import { CartListComponent } from './features/cart/components/cart-list/cart-list.component';
+import { ProductsModule } from './features/products/products.module';
+import { CartModule } from './features/cart/cart.module';
+import { SharedModule } from './shared/shared.module';
+import { OrdersModule } from './features/orders/orders.module';
 
 @NgModule({
   declarations: [
     ShpComponent,
-    FirstComponent,
-    ProductComponent,
-    ProductListComponent,
-    CartListComponent,
   ],
   imports: [
+    ProductsModule,
+    CartModule,
+    OrdersModule,
+    SharedModule,
+
     BrowserModule,
     ShpRoutingModule
   ],
