@@ -20,4 +20,8 @@ export class CartListComponent implements OnInit {
   identify(index: number, item: CartItem) {
     return item.item.id;
   }
+
+  getTotalPrice(): number{
+    return this.cartService.getTotalPrice();
+  }
 }

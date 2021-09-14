@@ -5,6 +5,22 @@
 }
 
 @keyframes cart-appear {
-  from {background-color: rgb(19, 93, 255);}
-  to {background-color: #fff;}
+  from {
+    background-color: rgb(19, 93, 255);
+  }
+  to {
+    background-color: #fff;
+  }
+}
+
+.total-price {
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .value {
+    color: #aa1414;
+    text-decoration: underline;
+  }
 }

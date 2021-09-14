@@ -16,11 +16,15 @@ export class CartService {
     if (item) {
       item.amount++;
     } else {
-      this.items.push({ item: product, amount: 1 });
+      this.items.push(new CartItem(product, 1));
     }
   }
 
   getCartProducts(): CartItem[] {
     return this.items;
+  }
+
+  getTotalPrice(): number {
+    return this.items.reduce((sum, current) => sum + current.getTotalItemPrice(), 0);
   }
 }

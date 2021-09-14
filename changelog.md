@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CartService is called from ProductListComponent 
 ### Added
 - ProductsModule, CartModule, OrdersModule, SharedModule
+- CartListComponent displays total price
 
 ## [0.1.1] - 2021-09-15
 ### Changed
