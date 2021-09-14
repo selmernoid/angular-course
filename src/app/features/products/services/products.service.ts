@@ -7,7 +7,7 @@ import { ProductModel } from '../models/product';
 })
 export class ProductsService {
 
-  GetProducts(): ProductModel[] {
+  getProducts(): ProductModel[] {
     return [
       { id: 10, name: 'Egg', category: CategoryType.Food, isAvailable: true, price: 5 },
       { id: 7, name: 'Windows', category: CategoryType.Software, isAvailable: true, price: 500 },
