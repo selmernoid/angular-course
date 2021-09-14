@@ -1,12 +1,11 @@
 <div *ngIf="!!cartItemsList && cartItemsList.length; else emptyCart">
-  <div *ngFor="let item of cartItemsList; trackBy: identify" class="cart-item">
-    Name: {{ item.item.name }}
-    <br />
-    <div>
-      Price: {{ item.item.price | currency }} x{{ item.amount }} =
-      {{ item.item.price * item.amount | currency }}
-    </div>
-  </div>
+  <shp-cart-item
+    *ngFor="let item of cartItemsList; trackBy: identify"
+    [cart]="item"
+    (setAmount)="setCartItemAmount($event)"
+    (remove)="removeCartItem($event)"
+  >
+  </shp-cart-item>
   <div class="total-price">
     <div class="title">Total price:</div>
     <div class="value">{{ getTotalPrice() | currency }}</div>

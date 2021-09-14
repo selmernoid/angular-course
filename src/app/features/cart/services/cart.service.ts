@@ -12,12 +12,31 @@ export class CartService {
   constructor() { }
 
   buyProduct(product: ProductModel): void {
-    let item = this.items.find(x => x.item.id === product.id);
+    let item = this.items.find(x => x.product.id === product.id);
     if (item) {
       item.amount++;
     } else {
       this.items.push(new CartItem(product, 1));
     }
+  }
+
+  setCartItemAmount(id: number, amount: number): void {
+    if (amount <= 0) {
+      this.removeCartItem(id);
+      return;
+    }
+    var cart = this.items.find(x => x.product.id == id);
+    if (cart) {
+      cart.amount = amount;
+    }
+  }
+
+  removeCartItem(id: number) {
+    this.items.forEach((item, index) => {
+      if (item.product.id == id) {
+        this.items.splice(index, 1);
+      }
+    });
   }
 
   getCartProducts(): CartItem[] {

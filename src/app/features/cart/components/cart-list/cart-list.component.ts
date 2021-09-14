@@ -18,10 +18,18 @@ export class CartListComponent implements OnInit {
   }
 
   identify(index: number, item: CartItem) {
-    return item.item.id;
+    return item.product.id;
   }
 
-  getTotalPrice(): number{
+  getTotalPrice(): number {
     return this.cartService.getTotalPrice();
+  }
+
+  setCartItemAmount(data: { id: number, amount: number }): void {
+    this.cartService.setCartItemAmount(data.id, data.amount);
+  }
+
+  removeCartItem(id: number): void {
+    this.cartService.removeCartItem(id);
   }
 }

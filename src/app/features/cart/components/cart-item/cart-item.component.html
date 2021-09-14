@@ -1,0 +1,16 @@
+<div class="cart-item">
+  <div class="name">Name: {{ cart.product.name }}</div>
+  <div class="price">Price: {{ cart.product.price | currency }}</div>
+  <div class="amount">
+    Amount: {{ cart.amount }}
+    <div>
+      <fa-icon (click)="addItem()" icon="arrow-up"></fa-icon>
+      <fa-icon (click)="reduceItem()" icon="arrow-down"></fa-icon>
+    </div>
+  </div>
+  <div class="subtotal">
+    sub-total:
+    {{ cart.product.price * cart.amount | currency }}
+  </div>
+  <fa-icon icon="trash" class="remove" (click)="removeCartItem()"></fa-icon>
+</div>

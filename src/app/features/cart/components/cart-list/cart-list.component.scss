@@ -1,18 +1,3 @@
-.cart-item {
-  background-color: #fff;
-  animation-name: cart-appear;
-  animation-duration: 2s;
-}
-
-@keyframes cart-appear {
-  from {
-    background-color: rgb(19, 93, 255);
-  }
-  to {
-    background-color: #fff;
-  }
-}
-
 .total-price {
   .title {
     font-size: 20px;
