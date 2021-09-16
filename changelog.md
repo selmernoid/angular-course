@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CartItemComponent
 - Ability to edit cart amount
 - Ability to remove amount
+- Ability to manipulate cart amount by mouse wheel
+- Page title that managed from the main component
+- HighlightDirective
+- Product Price highlighted by border color
+- Product that isn't available - could not be bought
 
 ## [0.1.1] - 2021-09-15
 ### Changed

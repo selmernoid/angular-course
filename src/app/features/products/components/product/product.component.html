@@ -1,5 +1,15 @@
-<div class="product-info">
+<div
+  class="product-info"
+  [ngClass]="{
+    cheap: product.price < 10,
+    common: product.price >= 10 && product.price < 300,
+    expensive: product.price > 300
+  }"
+>
   <div class="title">{{ product.name }}</div>
   <div class="price">Just for {{ product.price | currency }}</div>
-  <div class="button" (click)="onBuyProduct()">Buy</div>
+  <div class="button" *ngIf="product.isAvailable; else notAvailable" (click)="onBuyProduct()">Buy</div>
+  <ng-template #notAvailable>
+    <div class="not-available">All items sold</div>
+  </ng-template>
 </div>

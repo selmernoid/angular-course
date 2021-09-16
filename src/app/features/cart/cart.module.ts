@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const EXPORTED_COMPONENTS = [
   CartListComponent
@@ -15,6 +16,7 @@ const EXPORTED_COMPONENTS = [
   ],
   imports: [
     CommonModule,
+    SharedModule,
     FontAwesomeModule
   ],
   exports: [

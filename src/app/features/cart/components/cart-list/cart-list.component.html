@@ -4,6 +4,7 @@
     [cart]="item"
     (setAmount)="setCartItemAmount($event)"
     (remove)="removeCartItem($event)"
+    (wheel)="changeCartAmount($event, item)"
   >
   </shp-cart-item>
   <div class="total-price">

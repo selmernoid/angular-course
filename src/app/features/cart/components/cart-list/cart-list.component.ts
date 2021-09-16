@@ -32,4 +32,15 @@ export class CartListComponent implements OnInit {
   removeCartItem(id: number): void {
     this.cartService.removeCartItem(id);
   }
+
+  changeCartAmount(event: WheelEvent, cartItem: CartItem): void {
+    let amount = cartItem.amount;
+    if (event.deltaY == 100) {
+      amount--;
+    }
+    else if (event.deltaY == -100) {
+      amount++;
+    }
+    this.cartService.setCartItemAmount(cartItem.product.id, amount);
+  }
 }
