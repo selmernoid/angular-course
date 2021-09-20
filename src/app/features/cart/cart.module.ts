@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
@@ -12,7 +12,7 @@ const EXPORTED_COMPONENTS = [
 @NgModule({
   declarations: [
     ...EXPORTED_COMPONENTS,
-    CartItemComponent
+    CartItemComponent // можно создать LOCAL_COMPONENTS
   ],
   imports: [
     CommonModule,
@@ -21,6 +21,7 @@ const EXPORTED_COMPONENTS = [
   ],
   exports: [
     ...EXPORTED_COMPONENTS
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class CartModule { }

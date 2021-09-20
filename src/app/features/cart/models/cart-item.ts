@@ -6,6 +6,8 @@ export class CartItem {
     public product: ProductModel,
     public amount: number) { }
 
+
+    // может быть getItemTotalPrice?
   getTotalItemPrice(): number {
     return this.amount * this.product.price;
   };
