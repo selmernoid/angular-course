@@ -7,43 +7,73 @@ import { CartItem } from '../models/cart-item';
 })
 export class CartService {
 
-  private items: Array<CartItem> = [];
+  private cartProducts: Array<CartItem> = [];
+
+  public totalQuantity: number = 0;
+
+  public totalSum: number = 0;
 
   constructor() { }
 
-  buyProduct(product: ProductModel): void {
-    let item = this.items.find(x => x.product.id === product.id);
-    if (item) {
-      item.amount++;
-    } else {
-      this.items.push(new CartItem(product, 1));
-    }
+  isEmptyCart = () => !this.cartProducts.length;
+
+  getProducts(): CartItem[] {
+    return this.cartProducts;
   }
 
-  setCartItemAmount(id: number, amount: number): void {
+  private updateCartData() {
+    this.totalQuantity = this.cartProducts.reduce((sum, current) => sum + current.amount, 0);
+    this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.getItemTotalPrice(), 0);
+  }
+
+  addProduct(product: ProductModel, amount: number = 1): void {
+    let item = this.cartProducts.find(x => x.product.id === product.id);
+    if (item) {
+      item.amount += amount;
+    } else {
+      this.cartProducts.push(new CartItem({ ...product }, amount));
+    }
+    this.updateCartData();
+  }
+
+  removeAllProducts() {
+    this.cartProducts = [];
+    this.updateCartData();
+  }
+
+  removeProduct(id: number) {
+    this.cartProducts.forEach((item, index) => {
+      if (item.product.id == id) {
+        this.cartProducts.splice(index, 1);
+      }
+    });
+    this.updateCartData();
+  }
+
+  increaseQuantity = (id: number, amount: number = 1) => this.changeQuantity(id, amount);
+
+  decreaseQuantity = (id: number, amount: number = 1) => this.changeQuantity(id, -amount);
+
+  private setCartItemAmount(id: number, amount: number): void {
     if (amount <= 0) {
-      this.removeCartItem(id);
+      this.removeProduct(id);
       return;
     }
-    var cart = this.items.find(x => x.product.id == id);
+    var cart = this.cartProducts.find(x => x.product.id == id);
     if (cart) {
       cart.amount = amount;
     }
+    this.updateCartData();
   }
 
-  removeCartItem(id: number) {
-    this.items.forEach((item, index) => {
-      if (item.product.id == id) {
-        this.items.splice(index, 1);
+  private changeQuantity(id: number, amount: number): void {
+    var cart = this.cartProducts.find(x => x.product.id == id);
+    if (cart) {
+      cart.amount += amount;
+      if (cart.amount <= 0) {
+        this.removeProduct(id);
       }
-    });
-  }
-
-  getCartProducts(): CartItem[] {
-    return this.items;
-  }
-
-  getTotalPrice(): number {
-    return this.items.reduce((sum, current) => sum + current.getTotalItemPrice(), 0);
+    }
+    this.updateCartData();
   }
 }

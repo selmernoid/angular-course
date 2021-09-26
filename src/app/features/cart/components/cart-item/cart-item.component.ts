@@ -14,17 +14,20 @@ export class CartItemComponent {
   remove: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  setAmount: EventEmitter<{ id: number, amount: number }> = new EventEmitter<{ id: number, amount: number }>();
+  increaseAmount: EventEmitter<void> = new EventEmitter<void>();
+
+  @Output()
+  decreaseAmount: EventEmitter<void> = new EventEmitter<void>();
 
   removeCartItem(): void {
     this.remove.emit(this.cart.product.id);
   }
 
   addItem(): void {
-    this.setAmount.emit({ id: this.cart.product.id, amount: this.cart.amount + 1 });
+    this.increaseAmount.emit();
   }
 
   reduceItem(): void {
-    this.setAmount.emit({ id: this.cart.product.id, amount: this.cart.amount - 1 });
+    this.decreaseAmount.emit();
   }
 }

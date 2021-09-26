@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
   onAddToCart(productId: number): void {
     const product = this.products.find(x => x.id == productId);
     if (product) {
-      this.cartService.buyProduct(product);
+      this.cartService.addProduct(product);
     }
   }
 }

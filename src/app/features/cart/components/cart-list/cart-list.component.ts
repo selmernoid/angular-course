@@ -11,36 +11,35 @@ export class CartListComponent implements OnInit {
 
   cartItemsList: CartItem[];
 
-  constructor(private cartService: CartService) { }
+  constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartItemsList = this.cartService.getCartProducts();
+    this.cartItemsList = this.cartService.getProducts();
   }
 
   identify(index: number, item: CartItem) {
     return item.product.id;
   }
 
-  getTotalPrice(): number {
-    return this.cartService.getTotalPrice();
+  increaseCartItemAmount(id: number): void {
+    this.cartService.increaseQuantity(id);
   }
 
-  setCartItemAmount(data: { id: number, amount: number }): void {
-    this.cartService.setCartItemAmount(data.id, data.amount);
+  decreaseCartItemAmount(id: number): void {
+    this.cartService.decreaseQuantity(id);
   }
 
   removeCartItem(id: number): void {
-    this.cartService.removeCartItem(id);
+    this.cartService.removeProduct(id);
   }
 
   changeCartAmount(event: WheelEvent, cartItem: CartItem): void {
-    let amount = cartItem.amount;
-    if (event.deltaY == 100) {
-      amount--;
+    event.stopPropagation();
+    if (event.deltaY > 0) {
+      this.cartService.decreaseQuantity(cartItem.product.id);
     }
-    else if (event.deltaY == -100) {
-      amount++;
+    else if (event.deltaY < 0) {
+      this.cartService.increaseQuantity(cartItem.product.id);
     }
-    this.cartService.setCartItemAmount(cartItem.product.id, amount);
   }
 }

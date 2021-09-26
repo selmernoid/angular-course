@@ -1,15 +1,17 @@
-<div *ngIf="!!cartItemsList && cartItemsList.length; else emptyCart">
+<div *ngIf="!cartService.isEmptyCart(); else emptyCart">
   <shp-cart-item
     *ngFor="let item of cartItemsList; trackBy: identify"
     [cart]="item"
-    (setAmount)="setCartItemAmount($event)"
+    (decreaseAmount)="decreaseCartItemAmount(item.product.id)"
+    (increaseAmount)="increaseCartItemAmount(item.product.id)"
     (remove)="removeCartItem($event)"
     (wheel)="changeCartAmount($event, item)"
+    shpNoScroll
   >
   </shp-cart-item>
   <div class="total-price">
     <div class="title">Total price:</div>
-    <div class="value">{{ getTotalPrice() | currency }}</div>
+    <div class="value">{{ cartService.totalSum | currency }}</div>
   </div>
 </div>
 
