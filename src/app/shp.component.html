@@ -365,6 +365,11 @@
     <div>{{ configOptionsService.getConfig() | json }}</div>
     <div>{{ constantsService | json }}</div>
     <div>{{ myGeneratedString }}</div>
+    <div>genId: {{ generatorService.getNewID() }} -- 
+      {{ generatorService.getNewID() }} -- 
+      {{ generatorService.getNewID() }} -- 
+      {{ generatorService.getNewID() }} -- 
+      {{ generatorService.getNewID() }}</div>
   </div>
   <h1 #appTitle></h1>
   <div class="card-container">

@@ -24,6 +24,7 @@ const LOCAL_COMPONENTS: any[] = [
   ],
   providers: [
     ConfigOptionsService,
+    GeneratorService,
     { provide: constantsToken, useValue: ConstantsService },
     { provide: generatedString, useFactory: GeneratorFactory(15), deps: [GeneratorService] },
   ]

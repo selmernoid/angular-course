@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from 
 import { ConstantsModel } from './core/models/constants.model';
 import { ConfigOptionsService } from './core/services/config-options.service';
 import { generatedString } from './core/services/generator.factory';
+import { GeneratorService } from './core/services/generator.service';
 import { constantsToken } from './core/tokens/constants.token';
 
 @Component({
@@ -14,6 +15,7 @@ export class ShpComponent implements AfterViewInit, OnInit {
 
   constructor(
     public configOptionsService: ConfigOptionsService,
+    public generatorService: GeneratorService,
     @Inject(generatedString) public myGeneratedString: string,
     @Inject(constantsToken) public constantsService: ConstantsModel,
   ) { }
