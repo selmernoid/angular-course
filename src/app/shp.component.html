@@ -361,15 +361,16 @@
 
 <div class="content" role="main">
   <div>
-    <h1>Services test</h1>
+    <h1 shpClickShadow step="10">Services test (CLICK ME)</h1>
     <div>{{ configOptionsService.getConfig() | json }}</div>
     <div>{{ constantsService | json }}</div>
     <div>{{ myGeneratedString }}</div>
-    <div>genId: {{ generatorService.getNewID() }} -- 
-      {{ generatorService.getNewID() }} -- 
-      {{ generatorService.getNewID() }} -- 
-      {{ generatorService.getNewID() }} -- 
-      {{ generatorService.getNewID() }}</div>
+    <div>
+      genId: {{ generatorService.getNewID() }} --
+      {{ generatorService.getNewID() }} -- {{ generatorService.getNewID() }} --
+      {{ generatorService.getNewID() }} -- {{ generatorService.getNewID() }}
+    </div>
+    <div>{{ storage.getData("ko") }}</div>
   </div>
   <h1 #appTitle></h1>
   <div class="card-container">
@@ -377,7 +378,7 @@
       <h2>Market list:</h2>
       <shp-product-list></shp-product-list>
     </div>
-    <div class="card">
+    <div class="card" shpClickShadow step="30">
       <h2>Cart:</h2>
       <shp-cart-list></shp-cart-list>
     </div>
