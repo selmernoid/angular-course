@@ -11,6 +11,8 @@ import { ProductsModule } from './features/products/products.module';
 import { CartModule } from './features/cart/cart.module';
 import { SharedModule } from './shared/shared.module';
 import { OrdersModule } from './features/orders/orders.module';
+import { CoreModule } from './core/core.module';
+
 @NgModule({
   declarations: [
     ShpComponent,
@@ -20,6 +22,7 @@ import { OrdersModule } from './features/orders/orders.module';
     CartModule,
     OrdersModule,
     SharedModule,
+    CoreModule,
 
     BrowserModule,
     ShpRoutingModule,

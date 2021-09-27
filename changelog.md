@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - CartService: increaseQuantity, decreaseQuantity, isEmptyCart, removeAllProducts
 - NoScrollDirective
+- Core module
+- ConfigOptionsService
+- ConstantsService
+- GeneratorService
 
 ## [0.2.0] - 2021-09-15
 ### Removed
@@ -40,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - FirstComponent to demo basic functionality
 - Product & ProductList components
-- CartList component
+ - CartList component
 - Product & Cart services
 - Feature "Buy a product"
 - Lint rules
