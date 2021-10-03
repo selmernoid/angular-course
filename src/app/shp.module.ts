@@ -12,6 +12,7 @@ import { CartModule } from './features/cart/cart.module';
 import { SharedModule } from './shared/shared.module';
 import { OrdersModule } from './features/orders/orders.module';
 import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     ShpRoutingModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [ShpComponent]

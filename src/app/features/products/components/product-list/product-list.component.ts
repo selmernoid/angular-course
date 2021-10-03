@@ -10,6 +10,11 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  public orderList: Array<keyof ProductModel> = ['price', 'isAvailable', 'name'];
+
+  public orderProperty: keyof ProductModel = 'name';
+
+  public orderingAsc: boolean = false;
 
   products$: Observable<ProductModel[]>;
 

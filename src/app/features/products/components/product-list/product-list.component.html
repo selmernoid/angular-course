@@ -1,6 +1,21 @@
 <div>
+  <mat-form-field appearance="fill" style="background-color: lightblue">
+    <mat-label>Order By</mat-label>
+    <mat-select [(ngModel)]="orderProperty">
+      <mat-option *ngFor="let property of orderList" [value]="property">
+        {{ property }}
+      </mat-option>
+    </mat-select>
+    <section class="example-section"></section>
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="orderingAsc" style="background-color: lightblue"
+    >Ascending</mat-checkbox
+  >
+
   <shp-product
-    *ngFor="let item of products$ | async"
+    *ngFor="
+      let item of products$ | async | orderBy: [orderProperty]:orderingAsc
+    "
     [product]="item"
     (buyProduct)="onAddToCart(item)"
     class="product"

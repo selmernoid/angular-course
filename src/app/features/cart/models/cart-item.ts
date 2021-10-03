@@ -1,10 +1,12 @@
-import { ArgumentOutOfRangeError } from 'rxjs';
 import { ProductModel } from '../../products/models/product';
 
 export class CartItem {
+  public added: Date;
   constructor(
     public product: ProductModel,
-    public amount: number) { }
+    public amount: number) {
+    this.added = new Date();
+  }
 
   getItemTotalPrice(): number {
     return this.amount * this.product.price;

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ConfigOptionsService } from './services/config-options.service';
 import { ConstantsService } from './services/constants.service';
 import { GeneratorService } from './services/generator.service';
 import { generatedString, GeneratorFactory } from './services/generator.factory';
 import { constantsToken } from './tokens/constants.token';
 import { LocalStorageService, shopLocalStorage } from './services/local-storage.service';
+import { SharedModule } from '../shared/shared.module';
 
 const EXPORTED_COMPONENTS: any[] = [
 ];
@@ -21,7 +21,7 @@ const LOCAL_COMPONENTS: any[] = [
     ...EXPORTED_COMPONENTS
   ],
   imports: [
-    CommonModule
+    SharedModule
   ],
   providers: [
     ConfigOptionsService,

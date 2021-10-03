@@ -1,6 +1,9 @@
 <div *ngIf="!cartService.isEmptyCart(); else emptyCart">
   <shp-cart-item
-    *ngFor="let item of cartItemsList; trackBy: identify"
+    *ngFor="
+      let item of cartItemsList | orderBy: ['amount', 'added']:false;
+      trackBy: identify
+    "
     [cart]="item"
     (decreaseAmount)="decreaseCartItemAmount(item.product.id)"
     (increaseAmount)="increaseCartItemAmount(item.product.id)"

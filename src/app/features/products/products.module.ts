@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 const EXPORTED_COMPONENTS = [
@@ -15,7 +15,7 @@ const EXPORTED_COMPONENTS = [
     
   ],
   imports: [
-    CommonModule
+    SharedModule
   ],
   exports: [
     ...EXPORTED_COMPONENTS

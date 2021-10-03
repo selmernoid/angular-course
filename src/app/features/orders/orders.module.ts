@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const EXPORTED_COMPONENTS = [
 ];
@@ -7,7 +7,7 @@ const EXPORTED_COMPONENTS = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class OrdersModule { }

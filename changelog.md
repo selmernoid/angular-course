@@ -9,8 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - getProducts returns Observable
 - onAddToCart accepts ProductModel instead of productId
+- import CommonModule to use from SharedModule 
 ### Added
 - Titlecase for cart & product items name
+- Angular Material
+- Cart list ordered by (Amount, DateAdded)
+- Product list ordering by fields with ASC / DESC checkbox
 
 ## [0.3.0] - 2021-09-27
 ### Removed
@@ -24,6 +28,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ConfigOptionsService
 - ConstantsService
 - GeneratorService
+### Pipes Used in
+- shp.component to display services results (json)
+- Cart Item (titlecase, currency)
+- Cart List (orderBy, currency)
+- Product (titlecase, currency)
+- Product List (orderBy twice)
+
 
 ## [0.2.0] - 2021-09-15
 ### Removed

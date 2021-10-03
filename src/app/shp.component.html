@@ -365,11 +365,12 @@
     <div>{{ configOptionsService.getConfig() | json }}</div>
     <div>{{ constantsService | json }}</div>
     <div>{{ myGeneratedString }}</div>
-    <div>
+    <!-- this generates errors in console -->
+    <!-- <div>
       genId: {{ generatorService.getNewID() }} --
       {{ generatorService.getNewID() }} -- {{ generatorService.getNewID() }} --
       {{ generatorService.getNewID() }} -- {{ generatorService.getNewID() }}
-    </div>
+    </div> -->
     <div>{{ storage.getData("ko") }}</div>
   </div>
   <h1 #appTitle></h1>
