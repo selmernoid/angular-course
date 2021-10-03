@@ -1,8 +1,8 @@
 <div>
   <shp-product
-    *ngFor="let item of products"
+    *ngFor="let item of products$ | async"
     [product]="item"
-    (buyProduct)="onAddToCart($event)"
+    (buyProduct)="onAddToCart(item)"
     class="product"
   ></shp-product>
 </div>
