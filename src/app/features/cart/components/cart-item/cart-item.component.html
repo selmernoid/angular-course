@@ -1,5 +1,5 @@
 <div class="cart-item" shpHighlight>
-  <div class="name">Name: {{ cart.product.name }}</div>
+  <div class="name">Name: {{ cart.product.name | titlecase }}</div>
   <div class="price">Price: {{ cart.product.price | currency }}</div>
   <div class="amount">
     Amount: {{ cart.amount }}
