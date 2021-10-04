@@ -21,6 +21,7 @@ export class CartService {
     return this.cartProducts;
   }
 
+  // Желательно приватные методы писать после публичных
   private updateCartData() {
     this.totalQuantity = this.cartProducts.reduce((sum, current) => sum + current.amount, 0);
     this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.getItemTotalPrice(), 0);
@@ -54,6 +55,7 @@ export class CartService {
 
   decreaseQuantity = (id: number, amount: number = 1) => this.changeQuantity(id, -amount);
 
+  // не используется?
   private setCartItemAmount(id: number, amount: number): void {
     if (amount <= 0) {
       this.removeProduct(id);
