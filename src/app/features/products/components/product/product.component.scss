@@ -1,32 +1,32 @@
-:host{
+:host {
   padding: 5px;
 }
 
-.product-info{
+.product-info {
+  padding: 5px 15px;
+  border: 1px #e9ffb4 solid;
+
+  &.cheap {
+    border-color: #00ff5c;
+  }
+  &.common {
+    border-color: #026b45;
+  }
+  &.expensive {
+    border-color: #d6018f;
+  }
+  .title {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .button {
     padding: 5px 15px;
-    border: 1px #e9ffb4 solid;
-
-    &.cheap{
-      border-color: #00ff5c;
-    }
-    &.common{
-      border-color: #026b45;
-    }
-    &.expensive{
-      border-color: #d6018f;
-    }
-    .title{
-      font-style: italic;
-      font-weight: bold;
-    }
-
-    .button{
-      padding: 5px 15px;
-      background-color: #00ffff;
-    }
-
-    .not-available{
-      padding: 5px 15px;
-      background-color: #eee;
-    }
+    background-color: #00ffff;
+    cursor: pointer;
+  }
+  .not-available {
+    padding: 5px 15px;
+    background-color: #eee;
+  }
 }

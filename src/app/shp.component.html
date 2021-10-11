@@ -360,38 +360,6 @@
 </div>
 
 <div class="content" role="main">
-  <div>
-    <h1 shpClickShadow step="10">Services test (CLICK ME)</h1>
-    <div>{{ configOptionsService.getConfig() | json }}</div>
-    <div>{{ constantsService | json }}</div>
-    <div>{{ myGeneratedString }}</div>
-    <!-- this generates errors in console -->
-    <!-- <div>
-      genId: {{ generatorService.getNewID() }} --
-      {{ generatorService.getNewID() }} -- {{ generatorService.getNewID() }} --
-      {{ generatorService.getNewID() }} -- {{ generatorService.getNewID() }}
-    </div> -->
-    <div>{{ storage.getData("ko") }}</div>
-  </div>
   <h1 #appTitle></h1>
-  <div class="card-container">
-    <div class="card">
-      <h2>Market list:</h2>
-      <shp-product-list></shp-product-list>
-    </div>
-    <div class="card" shpClickShadow step="30">
-      <h2>Cart:</h2>
-      <shp-cart-list></shp-cart-list>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
