@@ -1,0 +1,4 @@
+<p>product-view works!</p>
+<div *ngIf="product$ | async as product">
+  {{ product.id }} - {{ product.name }} - {{ product.price }}
+</div>

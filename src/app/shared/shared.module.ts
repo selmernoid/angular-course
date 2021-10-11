@@ -8,12 +8,14 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { NoScrollDirective } from './directives/no-scroll.directive';
 import { ClickShadowDirective } from './directives/click-shadow.directive';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { RouterModule } from '@angular/router';
 
 const EXPORTED_MODULES = [
   CommonModule,
   FormsModule,
   MatSelectModule,
   MatCheckboxModule,
+  RouterModule,
 ]
 const EXPORTED_COMPONENTS = [
   HighlightDirective,

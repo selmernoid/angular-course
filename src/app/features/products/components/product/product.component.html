@@ -6,7 +6,7 @@
     expensive: product.price > 300
   }"
 >
-  <div class="title">{{ product.name | titlecase }}</div>
+  <a class="title" [routerLink]="['/product/', product.id]">{{ product.name | titlecase }}</a>
   <div class="price">Just for {{ product.price | currency }}</div>
   <div class="button" *ngIf="product.isAvailable; else notAvailable" (click)="onBuyProduct()">Buy</div>
   <ng-template #notAvailable>
