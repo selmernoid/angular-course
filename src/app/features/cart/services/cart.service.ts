@@ -21,11 +21,6 @@ export class CartService {
     return this.cartProducts;
   }
 
-  private updateCartData() {
-    this.totalQuantity = this.cartProducts.reduce((sum, current) => sum + current.amount, 0);
-    this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.getItemTotalPrice(), 0);
-  }
-
   addProduct(product: ProductModel, amount: number = 1): void {
     let item = this.cartProducts.find(x => x.product.id === product.id);
     if (item) {
@@ -54,16 +49,9 @@ export class CartService {
 
   decreaseQuantity = (id: number, amount: number = 1) => this.changeQuantity(id, -amount);
 
-  private setCartItemAmount(id: number, amount: number): void {
-    if (amount <= 0) {
-      this.removeProduct(id);
-      return;
-    }
-    var cart = this.cartProducts.find(x => x.product.id == id);
-    if (cart) {
-      cart.amount = amount;
-    }
-    this.updateCartData();
+  private updateCartData() {
+    this.totalQuantity = this.cartProducts.reduce((sum, current) => sum + current.amount, 0);
+    this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.getItemTotalPrice(), 0);
   }
 
   private changeQuantity(id: number, amount: number): void {
