@@ -3,25 +3,21 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CartRoutingModule } from './cart-routing.module';
 
-const EXPORTED_COMPONENTS = [
-  CartListComponent
-];
 const LOCAL_COMPONENTS = [
   CartItemComponent
 ];
 
 @NgModule({
   declarations: [
-    ...EXPORTED_COMPONENTS,
+    ...CartRoutingModule.components,
     ...LOCAL_COMPONENTS
   ],
   imports: [
     SharedModule,
-    FontAwesomeModule
-  ],
-  exports: [
-    ...EXPORTED_COMPONENTS
+    FontAwesomeModule,
+    CartRoutingModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

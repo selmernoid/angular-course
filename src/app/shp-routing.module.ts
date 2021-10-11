@@ -15,6 +15,10 @@ const routes: Routes = [
     component: ProductViewComponent,
   },
   {
+    path: 'cart',
+    loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
+  },
+  {
     path: '**',
     redirectTo: 'products-list',
   },
