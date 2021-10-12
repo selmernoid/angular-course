@@ -15,6 +15,7 @@
   <div class="total-price">
     <div class="title">Total price:</div>
     <div class="value">{{ cartService.totalSum | currency }}</div>
+    <a [routerLink]="'/order'">Process order</a>
   </div>
 </div>
 

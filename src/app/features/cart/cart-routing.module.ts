@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartListComponent } from './components/cart-list/cart-list.component';
+import { ProcessOrderComponent } from './components/process-order/process-order.component';
+import { OrderActivateGuard } from './guards/order-activate.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    children: [
-      {
-        path: '',
-        component: CartListComponent
-      },
-    ]
-  }
+    path: 'order',
+    component: ProcessOrderComponent,
+    canLoad: [],
+    canActivate: [OrderActivateGuard],
+  },
+  {
+    path: 'cart',
+    component: CartListComponent
+  },
 ];
 
 
@@ -20,5 +23,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class CartRoutingModule {
-  static components = [CartListComponent];
+  static components = [CartListComponent, ProcessOrderComponent];
 }
