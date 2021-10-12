@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
-import { HighlightDirective } from './directives/highlight.directive';
-import { NoScrollDirective } from './directives/no-scroll.directive';
-import { ClickShadowDirective } from './directives/click-shadow.directive';
-import { OrderByPipe } from './pipes/order-by.pipe';
 import { RouterModule } from '@angular/router';
+
+import { HighlightDirective, NoScrollDirective, ClickShadowDirective } from './directives';
+import { OrderByPipe } from './pipes/order-by.pipe';
+import { NotFoundComponent, RestrictedAccessComponent } from './components';
 
 const EXPORTED_MODULES = [
   CommonModule,
@@ -22,6 +21,8 @@ const EXPORTED_COMPONENTS = [
   NoScrollDirective,
   ClickShadowDirective,
   OrderByPipe,
+  RestrictedAccessComponent,
+  NotFoundComponent,
 ];
 
 @NgModule({

@@ -13,6 +13,8 @@ import { SharedModule } from './shared/shared.module';
 import { OrdersModule } from './features/orders/orders.module';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminModule } from './features/admin/admin.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     ProductsModule,
     CartModule,
+    AdminModule,
     OrdersModule,
     SharedModule,
     CoreModule,
 
     BrowserModule,
-    ShpRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    ShpRoutingModule,
   ],
   providers: [],
   bootstrap: [ShpComponent]

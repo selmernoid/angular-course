@@ -1,5 +1,28 @@
 ::ng-deep {
   .hovered {
-    background-color: #ddd!important;
+    background-color: #ddd !important;
+  }
+}
+.toolbar {
+  > span {
+    cursor: pointer;
+    color: #fff;
+    &.active {
+      text-decoration: underline;
+    }
+    + span { margin-left: 20px; }
+    &.role-act{
+      color: black;
+      border: 1px dotted blueviolet;
+      padding: 4px;
+      background-color: chartreuse;
+    }
+
+    a {
+      text-decoration: none;
+      &:visited {
+        color: #fff;
+      }
+    }
   }
 }

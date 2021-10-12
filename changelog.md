@@ -7,12 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.5.0] - 2021-10-11
 ### Removed
 ### Changed
-- 
+- Page Header
 ### Added
 - Product List routing
 - Product View component
 - Product Service - getProduct
 - Cart Routing module
+- restricted-access & not-found components
+- Admin (module, components, auth guard)
+- Auth service to core
+- Add/Remove admin role buttons to header
+- ResolveProductGuard, SaveChangesGuard
+- HasUnsavedChanges interface
+
 
 ## [0.4.0] - 2021-10-03
 ### Removed

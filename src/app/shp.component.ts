@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { ConstantsModel } from './core/models/constants.model';
+import { AuthService } from './core/services/auth.service';
 import { ConfigOptionsService } from './core/services/config-options.service';
 import { generatedString } from './core/services/generator.factory';
 import { GeneratorService } from './core/services/generator.service';
@@ -18,6 +19,7 @@ export class ShpComponent implements AfterViewInit, OnInit {
     public configOptionsService: ConfigOptionsService,
     public generatorService: GeneratorService,
     public storage: LocalStorageService,
+    public authService: AuthService,
     @Inject(generatedString) public myGeneratedString: string,
     @Inject(constantsToken) public constantsService: ConstantsModel,
   ) { }
@@ -32,5 +34,12 @@ export class ShpComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.titleElement.nativeElement.innerHTML = this.title;
+  }
+
+  addAdmin(): void{
+    this.authService.addAdminRole();
+  }
+  removeAdmin(): void{
+    this.authService.resetAdminRole();
   }
 }
