@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 ### Changed
 - Page Header
+- CartService reads stored session from StorageService on init
 ### Added
 - Product List routing
 - Product View component
@@ -19,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add/Remove admin role buttons to header
 - ResolveProductGuard, SaveChangesGuard
 - HasUnsavedChanges interface
+- CartStorageModel
+- StorageService
 
 
 ## [0.4.0] - 2021-10-03

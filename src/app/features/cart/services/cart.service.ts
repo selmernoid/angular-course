@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { StorageService } from 'src/app/shared/services/storage.service';
 import { ProductModel } from '../../products/models/product';
 import { CartItem } from '../models/cart-item';
+import { CartStorageModel } from '../models/cart-storage.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,19 @@ export class CartService {
 
   public totalSum: number = 0;
 
-  constructor() { }
+  private cartStorageKey = 'cart';
+
+  constructor(
+    private storage: StorageService
+  ) {
+    const previousState = this.storage.getData<CartStorageModel>(this.cartStorageKey);
+    if (previousState !== null) {
+      const { products, quantity, sum } = previousState!;
+      this.cartProducts = (products ?? []).map(x => new CartItem({ ...x.product }, x.amount));
+      this.totalQuantity = quantity ?? 0;
+      this.totalSum = sum ?? 0;
+    }
+  }
 
   isEmptyCart = () => !this.cartProducts.length;
 
@@ -52,6 +66,11 @@ export class CartService {
   private updateCartData() {
     this.totalQuantity = this.cartProducts.reduce((sum, current) => sum + current.amount, 0);
     this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.getItemTotalPrice(), 0);
+    this.storage.saveData(this.cartStorageKey, <CartStorageModel>{
+      products: this.cartProducts,
+      quantity: this.totalQuantity,
+      sum: this.totalSum,
+    });
   }
 
   private changeQuantity(id: number, amount: number): void {
