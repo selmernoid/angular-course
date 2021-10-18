@@ -13,7 +13,9 @@ export class SaveChangesGuard implements CanDeactivate<HasUnsavedChanges> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return component.hasUnsavedChanges ? component.hasUnsavedChanges() : true;
+    // return component.hasUnsavedChanges ? component.hasUnsavedChanges() : true;
+    // вариант покороче
+    return component.hasUnsavedChanges?.() ?? true;
   }
 
 }

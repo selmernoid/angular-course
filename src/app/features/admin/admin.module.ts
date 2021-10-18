@@ -11,7 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AdminComponent
   ],
   exports: [
-    ...AdminRoutingModule.components
+    ...AdminRoutingModule.components // ?
   ],
   imports: [
     CommonModule,
