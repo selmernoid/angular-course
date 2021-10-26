@@ -10,9 +10,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ...AdminRoutingModule.components,
     AdminComponent
   ],
-  exports: [
-    ...AdminRoutingModule.components
-  ],
   imports: [
     CommonModule,
     SharedModule,
