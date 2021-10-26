@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ProductModel } from '../../models/product';
-import { ProductsService } from '../../services/products.service';
+import { ProductsPromiseService } from '../../services/products-promise.service';
 
 @Component({
   selector: 'shp-product-view',
@@ -14,7 +14,7 @@ export class ProductViewComponent implements OnInit {
   public product$: Observable<ProductModel>;
 
   constructor(
-    private productService: ProductsService,
+    private productService: ProductsPromiseService,
     private route: ActivatedRoute,
   ) { }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ProductModel } from 'src/app/features/products/models/product';
-import { ProductsService } from 'src/app/features/products/services/products.service';
+import { ProductsPromiseService } from 'src/app/features/products/services/products-promise.service';
 
 @Component({
   selector: 'shp-products-manage',
@@ -10,10 +10,10 @@ import { ProductsService } from 'src/app/features/products/services/products.ser
   styleUrls: ['./products-manage.component.scss']
 })
 export class ProductsManageComponent implements OnInit {
-  products$: Observable<ProductModel[]>;
+  products$: Promise<ProductModel[]>;
 
   constructor(
-    private productsService: ProductsService,
+    private productsService: ProductsPromiseService,
     private router: Router,
   ) { }
 

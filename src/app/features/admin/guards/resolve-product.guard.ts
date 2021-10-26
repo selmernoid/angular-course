@@ -3,14 +3,14 @@ import { ActivatedRouteSnapshot, CanLoad, Resolve, Route, Router, RouterStateSna
 import { EMPTY, Observable, of } from 'rxjs';
 import { catchError, switchMap, take } from 'rxjs/operators';
 import { ProductModel } from '../../products/models/product';
-import { ProductsService } from '../../products/services/products.service';
+import { ProductsPromiseService } from '../../products/services/products-promise.service';
 
 @Injectable({
   providedIn: 'any'
 })
 export class ResolveProductGuard implements Resolve<ProductModel> {
   constructor(
-    private productsService: ProductsService,
+    private productsService: ProductsPromiseService,
     private router: Router,
   ) { }
 

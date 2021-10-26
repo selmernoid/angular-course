@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './features/admin/admin.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     OrdersModule,
     SharedModule,
     CoreModule,
+    HttpClientModule,
 
     BrowserModule,
     FontAwesomeModule,

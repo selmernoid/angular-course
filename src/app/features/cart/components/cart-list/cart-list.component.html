@@ -1,7 +1,7 @@
 <div *ngIf="!cartService.isEmptyCart(); else emptyCart">
   <shp-cart-item
     *ngFor="
-      let item of cartItemsList | orderBy: ['amount', 'added']:false;
+      let item of cartItemsList$ | async | orderBy: ['amount', 'added']:false;
       trackBy: identify
     "
     [cart]="item"

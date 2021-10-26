@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CartItem } from '../../models/cart-item';
 import { CartService } from '../../services/cart.service';
 
@@ -9,12 +10,12 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartListComponent implements OnInit {
 
-  cartItemsList: CartItem[];
+  cartItemsList$: Observable<CartItem[]>;
 
   constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartItemsList = this.cartService.getProducts();
+    this.cartItemsList$ = this.cartService.getProducts$();
   }
 
   identify(index: number, item: CartItem) {

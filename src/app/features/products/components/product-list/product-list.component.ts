@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductModel } from '../../models/product';
-import { ProductsService } from '../../services/products.service';
+import { ProductsPromiseService } from '../../services/products-promise.service';
 
 @Component({
   selector: 'shp-product-list',
@@ -16,10 +16,10 @@ export class ProductListComponent implements OnInit {
 
   public orderingAsc: boolean = false;
 
-  products$: Observable<ProductModel[]>;
+  products$: Promise<ProductModel[]>;
 
   constructor(
-    private productsService: ProductsService,
+    private productsService: ProductsPromiseService,
     private cartService: CartService,
   ) { }
 
