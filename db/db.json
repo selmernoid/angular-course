@@ -53,12 +53,23 @@
           "isAvailable": true,
           "price": 500
         },
+        "amount": 5,
+        "added": "2021-10-28T19:18:06.750Z"
+      },
+      {
+        "product": {
+          "id": 8,
+          "name": "Icecream",
+          "category": "Food",
+          "isAvailable": true,
+          "price": 12.2
+        },
         "amount": 2,
-        "added": "2021-10-26T22:57:50.771Z"
+        "added": "2021-10-28T19:18:30.845Z"
       }
     ],
-    "quantity": 2,
-    "sum": 1000
+    "quantity": 7,
+    "sum": 2524.4
   },
   "users": [
     {

@@ -6,6 +6,7 @@ import { generatedString, GeneratorFactory } from './services/generator.factory'
 import { constantsToken } from './tokens/constants.token';
 import { LocalStorageService, shopLocalStorage } from './services/local-storage.service';
 import { SharedModule } from '../shared/shared.module';
+import { httpInterceptorProviders } from './interceptors';
 
 const EXPORTED_COMPONENTS: any[] = [
 ];
@@ -24,6 +25,7 @@ const LOCAL_COMPONENTS: any[] = [
     SharedModule
   ],
   providers: [
+    httpInterceptorProviders,
     ConfigOptionsService,
     GeneratorService,
     { provide: constantsToken, useValue: ConstantsService },
