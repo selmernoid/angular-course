@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
+import { AppSettingsService } from 'src/app/core/services/app-settings.service';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductModel } from '../../models/product';
 import { ProductsPromiseService } from '../../services/products-promise.service';
@@ -21,11 +22,19 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productsService: ProductsPromiseService,
     private cartService: CartService,
+    private settingsService: AppSettingsService,
   ) { }
 
 
   ngOnInit(): void {
     this.products$ = this.productsService.getProducts();
+    this.settingsService.settings()
+      .subscribe((v) => {
+        this.orderList.forEach((o) => {
+          if (o == v.sortOrder)
+            this.orderProperty = o;
+        });
+      });
   }
 
   onAddToCart(product: ProductModel): void {
