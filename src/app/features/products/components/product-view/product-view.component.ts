@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { ShpState } from 'src/app/core/@ngrx';
+import { getProduct, getProductSuccess, selectEditedProductByUrl } from 'src/app/core/@ngrx/products';
 import { ProductModel } from '../../models/product';
 import { ProductsPromiseService } from '../../services/products-promise.service';
 
@@ -11,20 +14,18 @@ import { ProductsPromiseService } from '../../services/products-promise.service'
   styleUrls: ['./product-view.component.scss']
 })
 export class ProductViewComponent implements OnInit {
-  public product$: Observable<ProductModel>;
+  public product!: ProductModel;
 
   constructor(
-    private productService: ProductsPromiseService,
+    private store: Store<ShpState>,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.product$ = this.route.paramMap
-      .pipe(
-        switchMap((params: ParamMap) => {
-          return this.productService.getProduct(+params.get('productID')!);
-        })
-      );
+    this.store.select(selectEditedProductByUrl)
+      .subscribe((product: ProductModel) => {
+        this.product = { ...product }
+      });
   }
 
 }

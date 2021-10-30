@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, take, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ShpState } from 'src/app/core/@ngrx';
+import { getProducts, ProductsState, selectProducts, selectProductsState } from 'src/app/core/@ngrx/products';
 import { AppSettingsService } from 'src/app/core/services/app-settings.service';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductModel } from '../../models/product';
@@ -16,18 +19,22 @@ export class ProductListComponent implements OnInit {
   public orderProperty: keyof ProductModel = 'name';
 
   public orderingAsc: boolean = false;
-
-  products$: Promise<ProductModel[]>;
+  
+  productsState$: Observable<ProductsState>;
 
   constructor(
-    private productsService: ProductsPromiseService,
     private cartService: CartService,
     private settingsService: AppSettingsService,
+    private store: Store<ShpState>,
   ) { }
 
 
   ngOnInit(): void {
-    this.products$ = this.productsService.getProducts();
+    console.log('We have a store! ', this.store);
+    this.productsState$ = this.store.select(selectProductsState);
+
+    this.store.dispatch(getProducts());
+
     this.settingsService.settings()
       .subscribe((v) => {
         this.orderList.forEach((o) => {

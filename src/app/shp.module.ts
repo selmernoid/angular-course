@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './features/admin/admin.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RootStoreModule } from './core/@ngrx/root-store.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     BrowserAnimationsModule,
     ShpRoutingModule,
+    RootStoreModule,
   ],
   providers: [],
   bootstrap: [ShpComponent]

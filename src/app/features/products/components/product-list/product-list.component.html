@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="(productsState$ | async)?.data as products">
   <a [routerLink]="'/cart'">Go to Cart</a>
 
   <mat-form-field appearance="fill" style="background-color: lightblue">
@@ -16,7 +16,7 @@
 
   <shp-product
     *ngFor="
-      let item of products$ | async | orderBy: [orderProperty]:orderingAsc
+      let item of products | orderBy: [orderProperty]:orderingAsc
     "
     [product]="item"
     (buyProduct)="onAddToCart(item)"

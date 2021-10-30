@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [0.7.0] - 2021-10-31
+### Removed
+### Changed
+- Navigation in Products to Router-Store
+- OrderBy pipe accepts Readonly arrays
+### Added
+- ShpState, ProductsState, RouterState
+- For Products & Router: Actions, Effects, Reducers, Selectors
+- Products List & View use ngrx
+
 ## [0.6.0] - 2021-10-27
 ### Removed
 - ProductsService

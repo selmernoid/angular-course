@@ -1,4 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ShpState } from './core/@ngrx';
+import { back, forward, goHome } from './core/@ngrx/router/router.actions';
 import { ConstantsModel } from './core/models/constants.model';
 import { AuthService } from './core/services/auth.service';
 import { ConfigOptionsService } from './core/services/config-options.service';
@@ -22,6 +25,7 @@ export class ShpComponent implements AfterViewInit, OnInit {
     public authService: AuthService,
     @Inject(generatedString) public myGeneratedString: string,
     @Inject(constantsToken) public constantsService: ConstantsModel,
+    private store: Store<ShpState>,
   ) { }
 
   ngOnInit(): void {
@@ -36,10 +40,14 @@ export class ShpComponent implements AfterViewInit, OnInit {
     this.titleElement.nativeElement.innerHTML = this.title;
   }
 
-  addAdmin(): void{
+  addAdmin(): void {
     this.authService.addAdminRole();
   }
-  removeAdmin(): void{
+  removeAdmin(): void {
     this.authService.resetAdminRole();
   }
+
+  onHome(): void { this.store.dispatch(goHome()); }
+  onBack(): void {  this.store.dispatch(back()); }
+  onForward(): void {  this.store.dispatch(forward()); }
 }
