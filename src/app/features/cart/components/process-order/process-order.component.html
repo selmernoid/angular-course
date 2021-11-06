@@ -1,1 +1,228 @@
-<p>process-order works!</p>
+<h3>Process the order</h3>
+
+<div [formGroup]="userForm" class="flex-table">
+  <div
+    class="flex-row"
+    [ngClass]="{
+      'has-error': (firstName.touched || firstName.dirty) && !firstName.valid
+    }"
+  >
+    <label class="control-label" for="firstNameId">First Name</label>
+    <div class="control-input">
+      <input
+        class="form-control"
+        id="firstNameId"
+        type="text"
+        placeholder="First Name (required)"
+        (blur)="onBlur($event)"
+        formControlName="firstName"
+      />
+      <span class="help-block" *ngIf="getValidationMessageError('firstName')">
+        {{ getValidationMessageError("firstName") }}
+      </span>
+    </div>
+  </div>
+  <div
+    class="flex-row"
+    [ngClass]="{
+      'has-error': (lastName.touched || lastName.dirty) && !lastName.valid
+    }"
+  >
+    <label class="control-label" for="lastNameId">Last Name</label>
+    <div class="control-input">
+      <input
+        class="form-control"
+        id="lastNameId"
+        type="text"
+        placeholder="Last Name"
+        (blur)="onBlur($event)"
+        formControlName="lastName"
+      />
+
+      <span class="help-block" *ngIf="getValidationMessageError('lastName')">
+        {{ getValidationMessageError("lastName") }}
+      </span>
+    </div>
+  </div>
+
+  <div formArrayName="phones">
+    <div class="flex-row" *ngFor="let phone of phones.controls; let i = index">
+      <label class="control-label" attr.for="{{ 'PhoneId' + i }}"
+        >{{ phones.controls.length > 1 ? "Phone #" + (i + 1) : "Phone" }}
+        <span
+          *ngIf="phones.controls.length > 1"
+          class="remove-phone"
+          alt="Remove Phone"
+          ><fa-icon icon="trash" (click)="onRemovePhone(phone)"></fa-icon></span
+      ></label>
+      <div class="control-input">
+        <input
+          class="form-control"
+          id="phoneId"
+          type="tel"
+          placeholder="+38(000)000-00-00"
+          (blur)="onBlur($event)"
+          [formControlName]="i"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="flex-row">
+    <div (click)="onAddPhone()" class="control-label">
+        <fa-icon icon="plus"></fa-icon>
+        Add phone
+    </div>
+  </div>
+
+  <div
+    class="flex-row"
+    [ngClass]="{
+      'has-error': (email.touched || email.dirty) && email.invalid
+    }"
+  >
+    <label class="control-label" for="emailId">Email</label>
+
+    <div class="control-input">
+      <input
+        class="form-control"
+        id="emailId"
+        type="email"
+        placeholder="Email (required)"
+        (blur)="onBlur($event)"
+        shpEmailValidator
+        formControlName="email"
+      />
+      <span class="help-block" *ngIf="getValidationMessageError('email')">
+        {{ getValidationMessageError("email") }}
+      </span>
+    </div>
+  </div>
+
+  <div class="flex-row">
+    <div class="col-md-offset-1 col-md-8 checkbox">
+      <label>
+        <input
+          id="sendProductsId"
+          type="checkbox"
+          (blur)="onBlur($event)"
+          formControlName="selfPickup"
+        />
+        Self Pickup
+      </label>
+    </div>
+  </div>
+
+  <div
+    class="flex-row"
+    [ngClass]="{
+      'has-error': (address.touched || address.dirty) && address.invalid
+    }"
+    *ngIf="!selfPickup.value"
+  >
+    <label class="control-label" for="addressId">Address</label>
+
+    <div class="control-input">
+      <textarea
+        class="form-control"
+        id="addressId"
+        type="address"
+        (blur)="onBlur($event)"
+        placeholder="Address (required)"
+        formControlName="address"
+      ></textarea>
+      <span class="help-block" *ngIf="getValidationMessageError('address')">
+        {{ getValidationMessageError("address") }}
+      </span>
+    </div>
+  </div>
+  <!--
+<div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Address Type</label>
+    <div class="col-md-8">
+      <label class="radio-inline">
+        <input type="radio" id="addressType1Id" value="home" />Home
+      </label>
+      <label class="radio-inline">
+        <input type="radio" id="addressType2Id" value="work" />Work
+      </label>
+      <label class="radio-inline">
+        <input type="radio" id="addressType3Id" value="other" />Other
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label" for="cityId"
+      >Country, City, Zip Code</label
+    >
+
+    <div class="col-md-3">
+      <select class="form-control" id="countryId">
+        <option value="">Select a Country...</option>
+        <option *ngFor="let country of countries" value="{{ country }}">
+          {{ country }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <input
+        type="text"
+        class="form-control"
+        id="cityId"
+        placeholder="City"
+      />
+    </div>
+    <div class="col-md-2">
+      <input
+        type="number"
+        class="form-control"
+        id="zipId"
+        placeholder="Zip Code"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label" for="street1Id"
+      >Street Address 1</label
+    >
+    <div class="col-md-8">
+      <input
+        type="text"
+        class="form-control"
+        id="street1Id"
+        placeholder="Street address"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label" for="street2Id"
+      >Street Address 2</label
+    >
+    <div class="col-md-8">
+      <input
+        type="text"
+        class="form-control"
+        id="street2Id"
+        placeholder="Street address (second line)"
+      />
+    </div>
+  </div>
+</div>
+-->
+  <div class="form-group">
+    <div class="col-md-4 col-md-offset-2">
+      <span>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!userForm.valid"
+        >
+          Save
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

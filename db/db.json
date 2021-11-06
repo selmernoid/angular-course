@@ -53,8 +53,8 @@
           "isAvailable": true,
           "price": 500
         },
-        "amount": 5,
-        "added": "2021-10-28T19:18:06.750Z"
+        "amount": 11,
+        "added": "2021-11-06T19:05:14.060Z"
       },
       {
         "product": {
@@ -65,11 +65,11 @@
           "price": 12.2
         },
         "amount": 2,
-        "added": "2021-10-28T19:18:30.845Z"
+        "added": "2021-11-06T19:05:14.060Z"
       }
     ],
-    "quantity": 7,
-    "sum": 2524.4
+    "quantity": 13,
+    "sum": 5524.4
   },
   "users": [
     {

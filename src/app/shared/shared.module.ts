@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HighlightDirective, NoScrollDirective, ClickShadowDirective } from './directives';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { NotFoundComponent, RestrictedAccessComponent } from './components';
+import { EmailDirective } from './validators/email.validator';
 
 const EXPORTED_MODULES = [
   CommonModule,
@@ -20,6 +21,7 @@ const EXPORTED_COMPONENTS = [
   HighlightDirective,
   NoScrollDirective,
   ClickShadowDirective,
+  EmailDirective,
   OrderByPipe,
   RestrictedAccessComponent,
   NotFoundComponent,

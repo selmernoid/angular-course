@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { ProductModel } from '../../products/models/product';
 import { CartItem } from '../models/cart-item';
 import { CartStorageModel } from '../models/cart-storage.model';
@@ -11,6 +11,8 @@ import { CartObservableService } from './cart-observable.service';
 export class CartService {
 
   private cartProducts: Array<CartItem> = [];
+
+  private emptyCart$: Subject<boolean> = new ReplaySubject<boolean>(1);
 
   public totalQuantity: number = 0;
 
@@ -24,13 +26,14 @@ export class CartService {
       if (cart !== null) {
         const { products, quantity, sum } = cart!;
         this.cartProducts = (products ?? []).map(x => new CartItem({ ...x.product }, x.amount));
+        this.emptyCart$.next(!this.cartProducts.length);
         this.totalQuantity = quantity ?? 0;
         this.totalSum = sum ?? 0;
       }
     });
   }
 
-  isEmptyCart = () => !this.cartProducts.length;
+  isEmptyCart = () => this.emptyCart$;
 
   getProducts$(): Observable<CartItem[]> {
     return this.cartObservableService.getCart()
@@ -68,6 +71,7 @@ export class CartService {
   decreaseQuantity = (id: number, amount: number = 1) => this.changeQuantity(id, -amount);
 
   private updateCartData() {
+    this.emptyCart$.next(!this.cartProducts.length);
     this.totalQuantity = this.cartProducts.reduce((sum, current) => sum + current.amount, 0);
     this.totalSum = this.cartProducts.reduce((sum, current) => sum + current.getItemTotalPrice(), 0);
     this.cartObservableService.updateCart(<CartStorageModel>{

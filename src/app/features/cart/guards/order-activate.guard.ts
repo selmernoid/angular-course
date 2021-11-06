@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { CartService } from '../services/cart.service';
 
 @Injectable({
@@ -12,16 +12,19 @@ export class OrderActivateGuard implements CanActivate, CanLoad {
   ) { }
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return !this.cartIsEmpty();
+    return this.cartIsNotEmpty();
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return !this.cartIsEmpty();
+    return this.cartIsNotEmpty();
   }
 
-  private cartIsEmpty(): boolean {
-    return this.cartService.isEmptyCart();
+  private cartIsNotEmpty(): Observable<boolean> {
+    return this.cartService.isEmptyCart().asObservable()
+      .pipe(
+        map((v) => !v)
+      );
   }
 
 }

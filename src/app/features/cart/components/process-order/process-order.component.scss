@@ -1,0 +1,45 @@
+$error: #8a0000;
+$table-border: #d9d9d9;
+
+.has-error {
+  color: $error;
+  input {
+    border: 2px solid $error;
+  }
+}
+.help-block {
+  color: $error;
+}
+
+.flex-table {
+  display: flex;
+  width: 500px;
+  flex-flow: row wrap;
+  flex-direction: row;
+  border-left: solid 1px $table-border;
+
+  .remove-phone {
+    float: right;
+    margin-right: 15px;
+  }
+  
+  &:first-of-type .flex-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 10px;
+    align-content: flex-start;
+    align-items: flex-start;
+    > .control-label {
+      width: 100px;
+    }
+    > .control-input {
+      width: 380px;
+      > input,
+      textarea {
+        width: 100%;
+      }
+    }
+  }
+}
