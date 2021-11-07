@@ -5,6 +5,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.9.0] - 2021-11-07
+### Removed
+- ActivatedRoute dependency from ProductViewComponent
+- ProductEditComponent.spec.ts
+- cart-list.component.spec.ts
+- product-list.component.spec.ts
+- order-activate.guard.spec.ts
+- products-manage.component.spec.ts
+- cart-item.component.spec.ts
+- process-order.component.spec.ts
+### Changed
+- angular.json added codeCoverage
+### Added
+- OrderByPipe tests
+- ProductsPromiseService tests
+- ShpComponent tests
+- ProductComponent test with Store.dispatch check parameters
+- ProductViewComponent
+
 ## [0.8.0] - 2021-11-04
 ### Removed
 ### Changed
